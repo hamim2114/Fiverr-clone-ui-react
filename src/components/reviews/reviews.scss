@@ -1,0 +1,111 @@
+.reviews{
+    width: 100%;
+    height: 130vh;
+    display: flex;
+    justify-content: center;
+    .container{
+        width: 1350px;
+        .carousel-prev,.carousel-next{
+            width: 50px;height: 50px;
+            background-color: #ffffff;
+            box-shadow: 1px 1px 3px rgb(214, 214, 214);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .slide{
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+           .image{
+            position: relative;
+            span {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: #0e0505a4;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .icon {
+                    margin-left: 5px;
+                    font-size: 3.5rem;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+            img{
+                border-radius: 5px;
+            }
+           } 
+           .desc{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            h4{
+                font-size: 1.3rem;
+                color: #787A82;
+                font-weight: 500;
+            }
+            p{
+                font-size: 2rem;
+                font-family: 'Source Serif Pro', serif;
+                color: #003912;
+            }
+           } 
+        }
+        .logomaker{
+            background-color: #446EE7;
+            .container{
+                position: relative;
+                display: flex;
+                height: 343px;
+                align-items: center;
+                .left{
+                    padding: 30px 90px;
+                    flex: 2;
+                    color: white;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    h2{
+                        span{
+                            font-weight: 400;
+                        }
+                    }
+                    h1{
+                        font-size: 2.3rem;
+                        span{
+                            font-family: 'Source Serif Pro', serif;
+                        }
+                    }
+                    p{
+                        font-weight: 500;
+                    }
+                    button{
+                        width: 250px;
+                        padding: 15px;
+                        font-size: 15px;
+                        font-weight: bold;
+                        color: #446EE7;
+                        border-radius: 5px;
+                        border: none;
+                        background-color: #fff;
+                        cursor: pointer;
+                    }
+                }
+                .right{
+                    position: absolute;
+                    flex: 1;
+                    left: 180px;
+                }
+            }
+        }
+    }
+}

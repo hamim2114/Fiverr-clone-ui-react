@@ -1,0 +1,138 @@
+.navbar {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 95, 0);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s ease;
+    z-index: 999;
+    &.active{
+        background-color: #ffffff;
+        color: black;
+    }
+    .container {
+        width: 1350px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0px;
+        .logo{
+            font-size: 34px;
+            font-weight: 800;
+            .dot{
+                color: #1dbf73;
+            }
+        }
+        .search{
+            display: flex;
+            align-items: center;
+            width: 500px;
+           margin-right: 9rem;
+            background-color: black;
+            border-radius: 5px;
+            input{
+                width: 100%;
+                padding: 12px;
+                border-radius: 5px 0px 0px 5px;
+                border: 1px solid gray;
+                background-color: #fff;
+                &::placeholder{
+                    font-size: 15px;
+                    font-weight: bold;
+                    color: rgb(184, 184, 184);
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+            img{
+                width: 22px;
+                height: 22px;
+                margin: 0px 12px;
+            }
+        }
+        .links{
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            font-weight: 600;
+            .user{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+                position: relative;
+                img{
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .option{
+                    position: absolute;
+                    top: 50px;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    background-color: #fff;
+                    color: gray;
+                    padding: 20px;
+                    border-radius: 10px;
+                    border: 1px solid lightgray;
+                    width: 200px;
+                    font-weight: 400;
+                    z-index: 99;
+                }
+            }
+            button{
+                background-color: transparent;
+                color: white;
+                padding: 10px 20px;
+                border: 1px solid white;
+                border-radius: 5px;
+                cursor: pointer;
+                &.active{
+                    color: #1dbf73;
+                    border: 1px solid #1dbf73;
+                    &:hover{
+                        color: #ffffff;
+                    }
+
+                }
+                &:hover{
+                    background-color: #1dbf73;
+                    border-color: #1dbf73;
+                }
+            }
+        }
+    }
+    hr{
+        width: 100%;
+        height: 0;
+        border: 0.5px solid rgb(218, 217, 217);
+    }
+    .menu{
+        position: fixed;
+        left: 0;
+        top: 86px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+        color: gray;
+        border: 0.3px solid rgb(218, 218, 218);
+        
+        .menuItem{
+            padding: 10px 0px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            
+            width: 1350px;
+        }
+    }
+}

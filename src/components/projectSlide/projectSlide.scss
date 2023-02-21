@@ -1,0 +1,24 @@
+.pSlide{
+    padding-top: 100px;
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .container{
+        width: 1350px;
+        padding-bottom: 100px;
+        h1{
+            padding: 0px 0px 25px 0px;
+            color: #404145;
+        }
+        .carousel-prev,.carousel-next{
+            width: 50px;height: 50px;
+            background-color: #ffffff;
+            box-shadow: 1px 1px 3px rgb(214, 214, 214);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+}

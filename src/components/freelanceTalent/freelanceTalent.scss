@@ -1,0 +1,64 @@
+.ftalent {
+    height: calc(100vh - 100px);
+    background-color: #f1fdf7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container {
+        width: 1350px;
+        display: flex;
+        align-items: center;
+        .left {
+            flex: 1;
+            color: #404145;
+            padding-right: 10rem;
+            h1 {
+                margin-bottom: 2rem;
+            }
+            .item {
+                margin-bottom: 20px;
+                .title {
+                    display: flex;
+                    margin-bottom: 5px;
+                    img {
+                        height: 26px;
+                        width: 26px;
+                        margin-right: 15px;
+                    }
+                    h3 {
+                    }
+                }
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
+        .right {
+            flex: 1;
+            position: relative;
+            .videosec {
+                span {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    background-color: #0e0505a4;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .icon {
+                        margin-left: 5px;
+                        font-size: 3.5rem;
+                        color: white;
+                    }
+                }
+            }
+            .ReactModalPortal {
+               
+            }
+        }
+    }
+}
