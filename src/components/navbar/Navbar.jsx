@@ -39,7 +39,7 @@ const Navbar = () => {
                     <span>Explore</span>
                     <span>English</span>
                     <span>$ USD</span>
-                    <span>Sign in</span>
+                    <Link className='link' to='/login'><span>Sign in</span></Link>
                     {!currentUser?.isSeller && <span>Become a Seller</span>}
                     {!currentUser && <button className={active ? 'active' : ''}>Join</button>}
                     {currentUser && (

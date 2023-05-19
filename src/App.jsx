@@ -11,6 +11,10 @@ import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
 import Footer from './components/footer/Footer';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:5000/api'
+axios.defaults.withCredentials = true;
 
 function App() {
     const Layout = () => {
