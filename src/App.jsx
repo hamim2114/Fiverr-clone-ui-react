@@ -11,7 +11,14 @@ import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
 import Footer from './components/footer/Footer';
+<<<<<<< HEAD
 import {useSelector} from 'react-redux'
+=======
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:5000/api'
+axios.defaults.withCredentials = true;
+>>>>>>> c740ce69a933f5574ea6d61e803b1cc218f998b1
 
 function App() {
     const {user} = useSelector(state => state.user)

@@ -49,7 +49,11 @@ const Navbar = () => {
                     <span>Explore</span>
                     <span>English</span>
                     <span>$ USD</span>
+<<<<<<< HEAD
                     {!currentUser && <Link className='link' to='/login'><span>Sign in</span></Link>}
+=======
+                    <Link className='link' to='/login'><span>Sign in</span></Link>
+>>>>>>> c740ce69a933f5574ea6d61e803b1cc218f998b1
                     {!currentUser?.isSeller && <span>Become a Seller</span>}
                     {!currentUser && <Link to='/register'><button className={active ? 'active' : ''}>Join</button></Link>}
                     {currentUser && (
