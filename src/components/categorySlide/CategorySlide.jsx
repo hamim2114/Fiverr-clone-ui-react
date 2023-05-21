@@ -9,7 +9,7 @@ const Slide = () => {
             <div className="container">
                 <h1>Popular professional services</h1>
                 <Slider slidesToShow={5} arrowsScroll={5} >
-                {cards.map(data => <CategorySlideCard item={data} key={data.key}/>)}
+                {cards.map((data, id) => <CategorySlideCard item={data} key={id}/>)}
                 </Slider>
             </div>
         </div>

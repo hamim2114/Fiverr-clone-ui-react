@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux'
 import './navbar.scss'
+import { logout } from '../../redux/userSlice';
+import axios from 'axios';
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
     const [active2, setActive2] = useState(false);
     const [open, setOpen] = useState(false);
 
+    const {user: currentUser} = useSelector(state => state.user)
+  console.log(currentUser)
     const {pathname} = useLocation();
+    const dispatch = useDispatch();
+
+    const handleLogout = async () => {
+      dispatch(logout())
+      try {
+        const res = await axios.post('/auth/logout')
+        console.log(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
     window.onscroll = () => {
         setActive(window.pageYOffset === 0 ? false : true);
         setActive2(window.pageYOffset < 200 ? false : true);
         return () => (window.onscroll = null);
     };
-
-    const currentUser = {
-        id: 1,
-        username: 'Mr Alex',
-        isSeller: true
-    }
 
     return (
         <div className={active || pathname !=='/' ? 'navbar active' : 'navbar'}>
@@ -39,12 +49,12 @@ const Navbar = () => {
                     <span>Explore</span>
                     <span>English</span>
                     <span>$ USD</span>
-                    <span>Sign in</span>
+                    {!currentUser && <Link className='link' to='/login'><span>Sign in</span></Link>}
                     {!currentUser?.isSeller && <span>Become a Seller</span>}
-                    {!currentUser && <button className={active ? 'active' : ''}>Join</button>}
+                    {!currentUser && <Link to='/register'><button className={active ? 'active' : ''}>Join</button></Link>}
                     {currentUser && (
                         <div className="user" onClick={()=>setOpen(!open)}>
-                            <img src="https://i0.wp.com/newdoorfiji.com/wp-content/uploads/2018/03/profile-img-1.jpg?ssl=1" alt="" />
+                            <img src={currentUser.img || '/img/noavatar.jpg'} alt="" />
                             <span>{currentUser?.username}</span>
                             {open && <div className="option">
                                 {currentUser?.isSeller && (
@@ -55,7 +65,7 @@ const Navbar = () => {
                                 )}
                                 <Link to='/orders' className='link'>Orders</Link>
                                 <Link to='/messages' className='link'>Messages</Link>
-                                <span>Logout</span>
+                                <span onClick={handleLogout}>Logout</span>
                             </div>}
                         </div>
                     )}

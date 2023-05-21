@@ -9,7 +9,7 @@ const ProjectSlide = () => {
             <div className="container">
             <h1>Get inspired with projects made by our freelancers</h1>
                 <Slider slidesToShow={4} arrowsScroll={4}>
-                    {projects.map(data => <ProjectSlideCard item={data}/>)}
+                    {projects.map((data, id) => <ProjectSlideCard key={id} item={data}/>)}
                 </Slider>
             </div>
         </div>

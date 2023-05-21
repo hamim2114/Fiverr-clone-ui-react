@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, Navigate, RouterProvider } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Home from "./pages/home/Home";
 import Gigs from "./pages/gigs/Gigs";
@@ -11,8 +11,10 @@ import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
 import Footer from './components/footer/Footer';
+import {useSelector} from 'react-redux'
 
 function App() {
+    const {user} = useSelector(state => state.user)
     const Layout = () => {
         return (
             <>
@@ -64,7 +66,7 @@ function App() {
         },
         {
           path: '/login',
-          element: <Login/>
+          element: !user ? <Login/> : <Navigate to='/' />
         },
         {
           path: '/register',
