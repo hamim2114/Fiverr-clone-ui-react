@@ -3,7 +3,7 @@ import './categorySlideCard.scss'
 
 const CategorySlideCard = ({item}) => {
     return (
-        <Link to='/gigs?cat=design'>
+        <Link to='/gigs'>
         <div className='catSlideCard'>
             <img src={item.img} alt="" />
             <span className="desc">{item.desc}</span>

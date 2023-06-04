@@ -48,11 +48,11 @@ function App() {
                 },
                 {
                     path: '/messages',
-                    element: <Messages />,
+                    element: !user ? <Navigate to='/login'/> : <Messages />,
                 },
                 {
                     path: '/message/:id',
-                    element: <Message />,
+                    element: !user ? <Navigate to='/login'/> : <Message />,
                 },
                 {
                     path: '/add',
@@ -62,15 +62,15 @@ function App() {
                     path: '/gig/:id',
                     element: <Gig />,
                 },
+                {
+                  path: '/login',
+                  element: !user ? <Login/> : <Navigate to='/' />
+                },
+                {
+                  path: '/register',
+                  element: <Register/>
+                },
             ],
-        },
-        {
-          path: '/login',
-          element: !user ? <Login/> : <Navigate to='/' />
-        },
-        {
-          path: '/register',
-          element: <Register/>
         },
     ]);
 

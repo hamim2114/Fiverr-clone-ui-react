@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
 import './navbar.scss'
 import { logout } from '../../redux/userSlice';
-import axios from 'axios';
+import { axiosReq } from '../../utils/axiosReq';
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
@@ -11,14 +11,14 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     const {user: currentUser} = useSelector(state => state.user)
-  console.log(currentUser)
+  // console.log(currentUser)
     const {pathname} = useLocation();
     const dispatch = useDispatch();
 
     const handleLogout = async () => {
       dispatch(logout())
       try {
-        const res = await axios.post('/auth/logout')
+        const res = await axiosReq.post('/auth/logout')
         console.log(res.data)
       } catch (error) {
         console.log(error)
@@ -42,7 +42,7 @@ const Navbar = () => {
                 </div>
                 {active2 && <div className="search">
                   <input type="text" placeholder='What Service are you looking for Today?' />
-                 <img src="img/search.png" alt="" />
+                 <img src="/img/search.png" alt="" />
                 </div>}
                 <div className="links">
                     <span>Fiver Business</span>
@@ -50,7 +50,6 @@ const Navbar = () => {
                     <span>English</span>
                     <span>$ USD</span>
                     {!currentUser && <Link className='link' to='/login'><span>Sign in</span></Link>}
-                    <Link className='link' to='/login'><span>Sign in</span></Link>
                     {!currentUser?.isSeller && <span>Become a Seller</span>}
                     {!currentUser && <Link to='/register'><button className={active ? 'active' : ''}>Join</button></Link>}
                     {currentUser && (
@@ -60,8 +59,9 @@ const Navbar = () => {
                             {open && <div className="option">
                                 {currentUser?.isSeller && (
                                     <>
-                                        <Link to='/myGigs' className='link'>Gigs</Link>
+                                        <Link to='/gigs' className='link'>Gigs</Link>
                                         <Link to='/add' className='link'>Add New Gig</Link>
+                                        <Link to='/myGigs' className='link'>My Gigs</Link>
                                     </>
                                 )}
                                 <Link to='/orders' className='link'>Orders</Link>

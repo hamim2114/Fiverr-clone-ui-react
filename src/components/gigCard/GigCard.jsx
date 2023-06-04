@@ -1,20 +1,28 @@
 import { Link } from 'react-router-dom';
+import {useQuery} from '@tanstack/react-query'
 import './gigCard.scss';
+import { axiosReq } from '../../utils/axiosReq';
 
 const GigCard = ({ item }) => {
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['gigsUser'],
+        queryFn: () =>
+          axiosReq.get(`/users/${item.userId}`).then(res => res.data)
+      })
+ 
     return (
-        <Link to='/gig/2324'>
+        <Link className='link' to={`/gig/${item._id}`}>
         <div className='gigcard'>
-            <img src={item.img} alt='' />
+            <img src={item.cover} alt='' />
             <div className='info'>
                 <div className='user'>
-                    <img src={item.pp} alt='' />
-                    <span>{item.username}</span>
+                    <img src={data?.img} alt='' />
+                    <span>{data?.username}</span>
                 </div>
-                <p>{item.desc}</p>
+                <p>{item.title}</p>
                 <div className='star'>
                     <img src='./img/star.png' alt='' />
-                    <span>{item.star}</span>
+                    <span>{!isNaN(item.totalStars / item.starNumber) && Math.round(item.totalStars / item.starNumber)}</span>
                 </div>
             </div>
             <hr />

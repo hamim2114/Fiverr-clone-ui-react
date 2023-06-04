@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import './login.scss'
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice';
-import { axiosReq } from '../../../utils/axiosReq';
+import { axiosReq } from '../../utils/axiosReq';
 
 const Login = () => {
     const [input, setInput] = useState({});

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Register.scss";
-import { upload } from "../../../utils/upload";
-import { axiosReq } from "../../../utils/axiosReq";
+import { upload } from "../../utils/upload";
+import { axiosReq } from "../../utils/axiosReq";
 import {useNavigate} from 'react-router-dom'
 
 
